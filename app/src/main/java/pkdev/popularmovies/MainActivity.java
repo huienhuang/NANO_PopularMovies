@@ -41,7 +41,7 @@ import java.util.zip.GZIPInputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    final private String MOVIE_DB_API = "d15993548c72c1d6896be828b59e99c9";
+    final private String MOVIE_DB_API = "";
 
 
 
@@ -227,6 +227,9 @@ public class MainActivity extends AppCompatActivity {
 
             last_page_num++;
             for(int i = 0; i < movies.length; i++) movie_adapter.add(movies[i]);
+
+            if(last_page_num >= (int)result[1])
+                fetch_movie_data_task = new FetchMovieDataTask();
 
             movie_adapter.notifyDataSetChanged();
         }
