@@ -3,6 +3,7 @@ package pkdev.popularmovies;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -41,7 +42,7 @@ import java.util.zip.GZIPInputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    final private String MOVIE_DB_API = "";
+    final private String MOVIE_DB_API = "YOUR API KEY HERE";
 
 
 
@@ -60,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
     final private int MIN_ITEMS = 10;
 
     private SharedPreferences app_setting;
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i(TAG, "onConfigurationChanged");
+    }
 
 
     @Override
